@@ -1,0 +1,51 @@
+.apply-hostel {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.apply-hostel h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.apply-hostel form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.apply-hostel input,
+.apply-hostel textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.apply-hostel button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.apply-hostel button:hover {
+  background-color: #1e40af;
+}
+
+.gender-radio-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

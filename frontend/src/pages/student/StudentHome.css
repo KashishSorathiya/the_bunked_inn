@@ -1,0 +1,32 @@
+.student-home {
+  padding: 20px;
+}
+
+.status-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quick-actions {
+  margin-top: 20px;
+}
+
+.quick-actions button {
+  display: block;
+  margin-bottom: 12px;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.quick-actions button:hover {
+  background-color: #0056b3;
+}
