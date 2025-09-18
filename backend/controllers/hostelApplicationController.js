@@ -2,7 +2,6 @@ const HostelApplication = require("../models/HostelApplication");
 const Room = require("../models/Room");
 const User = require("../models/User");
 
-// Student submits hostel application
 const submitHostelApplication = async (req, res) => {
   try {
     const { rollNumber, course, gender } = req.body;
@@ -19,7 +18,7 @@ const submitHostelApplication = async (req, res) => {
       userId,
       rollNumber,
       course,
-      gender, // ✅ Make sure this is present
+      gender, 
     });
 
     await newApplication.save();
@@ -52,7 +51,7 @@ const updateHostelApplication = async (req, res) => {
     const { id } = req.params;
     const { isApplicationApproved } = req.body;
 
-    const application = await HostelApplication.findById(id); // ✅ use 'id' not 'requestId'
+    const application = await HostelApplication.findById(id); 
 
     if (!application) {
       return res.status(404).json({ message: "Application not found." });
@@ -70,14 +69,14 @@ const updateHostelApplication = async (req, res) => {
     const userId = application.userId;
 
     
-    // ✅ Step 1: Find existing room with same gender & course
+    //Find existing room with same gender & course
     let room = await Room.findOne({
       gender,
       $expr: { $lt: [{ $size: "$occupants" }, 2] },
       occupants: { $elemMatch: { course } }
     });
 
-    // ✅ Step 2: If not found, try with same gender only
+    // If not found, try with same gender only
     if (!room) {
       room = await Room.findOne({
         gender,
@@ -85,7 +84,7 @@ const updateHostelApplication = async (req, res) => {
       });
     }
 
-    // ✅ Step 3: If still not found, create new room
+    //If still not found, create new room
     if (!room) {
       const prefix = gender === "female" ? "G" : "B";
       const allRooms = await Room.find({ gender });
@@ -115,17 +114,17 @@ const updateHostelApplication = async (req, res) => {
       await room.save();
     }
 
-    // ✅ Step 4: Add user to room
+    //Add user to room
     room.occupants.push({ userId, course });
     await room.save();
 
-    // ✅ Step 5: Update application
+    //Update application
     application.roomNumber = room.roomNumber;
     application.applicationStatus = "Approved";
     application.isApplicationApproved = true;
     await application.save();
 
-    // ✅ Step 6: Update user
+    //Update user
     await User.findByIdAndUpdate(userId, {
       applied: true,
       roomNumber: room.roomNumber

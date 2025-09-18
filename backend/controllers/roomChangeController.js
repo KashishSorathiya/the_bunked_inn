@@ -93,7 +93,7 @@ const updateRoomChangeStatus = async (req, res) => {
         const prefix = gender === "male" ? "B" : "G";
         const allRooms = await Room.find({ gender });
 
-        // ✅ SAFELY extract room numbers (ignore invalid ones)
+        //SAFELY extract room numbers (ignore invalid ones)
         const existingNumbers = allRooms
           .map(r => {
             const parts = r.roomNumber?.split("-");
