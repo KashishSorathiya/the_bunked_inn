@@ -2,33 +2,27 @@ const HostelApplication = require("../models/HostelApplication");
 const Room = require("../models/Room");
 const User = require("../models/User");
 
+const { submitHostelApplicationService } = require('../services/services/hostelApplicationService');
+
 const submitHostelApplication = async (req, res) => {
   try {
     const { rollNumber, course, gender } = req.body;
     const userId = req.user.id;
 
-    //console.log("Received hostel application:", { userId, rollNumber, course, gender });
+    const result = await submitHostelApplicationService({ userId, rollNumber, course, gender });
 
-    const existing = await HostelApplication.findOne({ userId });
-    if (existing) {
-      return res.status(400).json({ message: "You have already applied for hostel." });
+    if (result.error === 'already_applied') {
+      return res.status(400).json({ message: 'You have already applied for hostel.' });
     }
 
-    const newApplication = new HostelApplication({
-      userId,
-      rollNumber,
-      course,
-      gender, 
-    });
-
-    await newApplication.save();
-    await User.findByIdAndUpdate(userId, { applied: true });
-    res.status(201).json({ message: "Hostel application submitted successfully." });
+    res.status(201).json({ message: 'Hostel application submitted successfully.' });
   } catch (err) {
-    console.error("❌ Hostel Application Error:", err);
-    res.status(500).json({ message: "Server error.", error: err.message });
+    console.error('❌ Hostel Application Error:', err);
+    res.status(500).json({ message: 'Server error.', error: err.message });
   }
 };
+
+module.exports = { submitHostelApplication };
 
 
 // Admin fetches all hostel applications
