@@ -2,7 +2,9 @@ const HostelApplication = require("../models/HostelApplication");
 const Room = require("../models/Room");
 const User = require("../models/User");
 
-const { submitHostelApplicationService } = require('../services/services/hostelApplicationService');
+const { submitApplicationService } = require('../services/hostelApplicationService');
+const { submitHostelApplicationService } = require("../services/hostelApplicationService");
+
 
 const submitHostelApplication = async (req, res) => {
   try {
