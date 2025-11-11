@@ -1,6 +1,6 @@
-# 🎯 HostelEase Backend Design Commentary
+# 🎯 The Bunked Inn Backend Design Commentary
 
-This document explains the design improvements and software engineering principles applied in the **HostelEase – College Hostel & Complaint Management System** project.
+This document explains the design improvements and software engineering principles applied in the **The Bunked Inn – College Hostel & Complaint Management System** project.
 
 ---
 
@@ -56,9 +56,9 @@ if (!token) {
 // After (centralized in authMiddleware.js)
 app.use(authenticateUser);
 Result: Cleaner controllers + reusable authentication logic.
+---
 
-
-Example 2: Complaint Retrieval Improved Using populate()
+## 🧠 Example 2 — Complaint Retrieval Improved Using .populate()
 // Before
 Complaint.find();
 // After
@@ -66,7 +66,7 @@ Complaint.find().populate("userId").sort({ createdAt: -1 });
 Result: Admin can clearly see which student submitted each complaint, and latest complaints appear first.
 
 
-Example 3: Room Allocation Logic Encapsulated
+🏠 Example 3 — Room Allocation Logic Encapsulated
 Room allocation logic is reused in:
     Hostel Application Approval
     Room Change Approval
@@ -80,13 +80,14 @@ By placing allocation rules in a helper function, code duplication was removed.
 | **Better Testing Support**   | Each function handles a single job, simplifying unit tests |
 | **Performance & Efficiency** | Optimized DB queries (sorting, filtering, population)      |
 | **Scalable**                 | New modules (e.g., Warden Dashboard) can be added easily   |
-
+---
 
 📁 File Location
 
 This file is included in the repository at:
 backend/design.md
 
+---
 🧾 Summary
 
 This design documentation highlights how the project code quality, maintainability, and structure were improved during the development process.
