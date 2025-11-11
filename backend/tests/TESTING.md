@@ -1,4 +1,4 @@
-# ✅ HostelEase Backend Test Coverage Summary
+# ✅ The Bunked Inn Backend Test Coverage Summary
 
 This document summarizes the test cases written for the **College Hostel Complaint System** backend.  
 All tests are implemented using **Jest** and are located inside the `tests/` directory.
