@@ -1,11 +1,9 @@
-# ✅ The Bunked Inn Backend Test Coverage Summary
+#  The Bunked Inn Backend Test Coverage Summary
 
 This document summarizes the test cases written for the **College Hostel Complaint System** backend.  
 All tests are implemented using **Jest** and are located inside the `tests/` directory.
 
----
-
-## 📂 Test Files Location
+## Test Files Location
 All test files are located in:
 
 ```
@@ -19,9 +17,8 @@ backend/tests/
 | `complaintController.test.js` | Complaint Handling Module | Ensures complaint submission, retrieval, and status updates work |
 | `roomChangeController.test.js` | Room Change Request Module | Tests request creation, processing, and admin update actions |
 
----
 
-## 🧪 Key Functionalities Covered
+## Key Functionalities Covered
 
 ### 1. **Authentication & Authorization Middleware**
 - Checks if token is missing → returns `401 Unauthorized`
@@ -52,20 +49,18 @@ backend/tests/
   - Previous room occupant removed
   - New room occupant assignment happens
 
----
 
-## ✅ Test Status Overview
+## Test Status Overview
 
 | Module | Completion | Test Result |
 |--------|------------|-------------|
-| Authentication Middleware | ✅ Completed | 🟢 Passed |
-| Hostel Application | ✅ Completed | 🟢 Passed |
-| Complaint Controller | ✅ Completed | 🟢 Passed |
-| Room Change Controller | ✅ Completed | 🟢 Passed |
+| Authentication Middleware |  Completed |  Passed |
+| Hostel Application |  Completed |  Passed |
+| Complaint Controller | Completed |  Passed |
+| Room Change Controller |  Completed |  Passed |
 
----
 
-## 🚀 How to Run Tests
+## How to Run Tests
 
 Run the following command inside the `backend` folder:
 
@@ -74,16 +69,10 @@ cd backend
 npm test
 ```
 
----
-
-## 📌 Notes
+## Notes
 - All tests use **Jest**
 - Database calls are **mocked** to ensure fast and isolated testing
 
----
-
-📁 **GitHub Path:** `backend/tests/`
-
----
+ **GitHub Path:** `backend/tests/`
 
 **This testing suite ensures core system workflow is validated and stable.**
