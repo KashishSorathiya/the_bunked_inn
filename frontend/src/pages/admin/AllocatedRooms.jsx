@@ -11,7 +11,7 @@ const AllocatedRooms = () => {
     const fetchAllocatedRooms = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/hostel-application', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/hostel-application`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

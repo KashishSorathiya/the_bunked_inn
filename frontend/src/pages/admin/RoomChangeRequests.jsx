@@ -9,7 +9,7 @@ const RoomChangeRequests = () => {
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/room-change/all", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/room-change/all`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -27,7 +27,7 @@ const RoomChangeRequests = () => {
   const updateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/room-change/update/${id}`,
+    `${process.env.REACT_APP_API_URL}/api/room-change/update/${id}`,
         { status },
         {
           headers: {

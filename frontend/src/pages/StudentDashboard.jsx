@@ -35,7 +35,7 @@ const StudentDashboard = () => {
 
       // Fetch hostel application info
       try {
-        const res = await fetch("http://localhost:5000/api/hostel-application/me", {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/hostel-application/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

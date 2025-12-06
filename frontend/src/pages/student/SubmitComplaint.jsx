@@ -14,7 +14,7 @@ const SubmitComplaint = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:5000/api/complaints/submit",
+    `${process.env.REACT_APP_API_URL}/api/complaints/submit`,
         { rollNumber, course, message },
         { headers: { Authorization: `Bearer ${token}` } }
       );

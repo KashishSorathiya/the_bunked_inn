@@ -16,7 +16,7 @@ const ApplyHostel = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:5000/api/hostel-application/apply",
+    `${process.env.REACT_APP_API_URL}/api/hostel-application/apply`,
         { rollNumber, course, gender },
         {
           headers: {

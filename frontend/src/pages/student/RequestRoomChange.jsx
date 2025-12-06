@@ -15,7 +15,7 @@ const RequestRoomChange = () => {
       hasFetched.current = true;
 
       try {
-        const res = await axios.get("http://localhost:5000/api/users/profile", {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/profile`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -36,7 +36,7 @@ const RequestRoomChange = () => {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/room-change/submit",
+    `${process.env.REACT_APP_API_URL}/api/room-change/submit`,
         { reason, currentRoom },
         {
           headers: {

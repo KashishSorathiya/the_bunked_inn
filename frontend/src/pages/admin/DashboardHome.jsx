@@ -8,7 +8,7 @@ const DashboardHome = ({ setActiveSection }) => {
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/stats', {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/stats`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

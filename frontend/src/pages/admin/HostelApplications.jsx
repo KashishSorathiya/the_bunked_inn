@@ -10,7 +10,7 @@ const HostelApplications = () => {
   const fetchApplications = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/hostel-application", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/hostel-application`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ const HostelApplications = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        `http://localhost:5000/api/hostel-application/${id}`,
+    `${process.env.REACT_APP_API_URL}/api/hostel-application/${id}`,
         { isApplicationApproved: approve },
         {
           headers: {

@@ -9,7 +9,7 @@ const ViewComplaints = () => {
   useEffect(() => {
     const fetchComplaints = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/complaints/my", {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/complaints/my`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
